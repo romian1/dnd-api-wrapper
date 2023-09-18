@@ -47,8 +47,11 @@
     <img class="logo" src="@/assets/logo.png">
     <div class="center-container">
         <div class="navbar">
-            <button class="category-button" :class="{ 'selected-button': selectedEndpoint === endpoint }"
-                v-for="(endpoint, label) in endpoints" :key="label" @click="onSelectEndpoint(endpoint)">
+            <button class="category-button" 
+                v-for="(endpoint, label) in endpoints" 
+                :key="label"
+                :class="{ 'selected-button': selectedEndpoint === endpoint }"
+                 @click="onSelectEndpoint(endpoint)">
                 {{ label }}
             </button>
         </div>
@@ -64,7 +67,6 @@
 <script>
 export default {
     methods: {
-
         request(url) {
             fetch(url)
                 .then(response => {
